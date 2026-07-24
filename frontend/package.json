@@ -15,7 +15,7 @@
     "axios": "latest",
     "echarts": "latest",
     "echarts-for-react": "latest",
-    "lucide-react": "^0.468.0",
+    "lucide-react": "^1.26.0",
     "react": "latest",
     "react-dom": "latest",
     "vite": "latest"
