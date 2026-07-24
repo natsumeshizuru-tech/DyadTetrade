@@ -1,6 +1,6 @@
 # Private migration support only. This file is intentionally excluded from the
 # clean DyadTetrade public export; new research work belongs in DyadResearch.
-numpy>=2.2,<3.0
+numpy>=2.5.1,<3.0
 pandas>=2.2,<4.0
 pyarrow>=19,<25
 duckdb>=1.2,<2.0
