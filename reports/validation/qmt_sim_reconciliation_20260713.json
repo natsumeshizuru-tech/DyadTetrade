@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-07-13T18:22:15+08:00",
+  "scope": "qmt_sim read-only startup, broker query reconciliation, restart and shutdown",
+  "order_sent": false,
+  "cancel_sent": false,
+  "live_trading_enabled": false,
+  "execution_mode": "qmt_sim",
+  "miniqmt": {
+    "connected": true,
+    "subscribed": true,
+    "account_healthy": true,
+    "risk_state": "NORMAL",
+    "sector_count": 6972
+  },
+  "ledger": {
+    "queried_orders": 4,
+    "filled_orders": 3,
+    "cancelled_orders": 1,
+    "unknown_active_orders": 0,
+    "broker_trades": 55,
+    "valid_trade_identities": 55,
+    "distinct_broker_orders": 4,
+    "orphan_trades": 0,
+    "quarantined_invalid_sentinel_orders": 1,
+    "broker_settlements": 0,
+    "qmt_live_rows": 0
+  },
+  "migration": {
+    "head": "20260713_18",
+    "empty_database_upgrade": "passed",
+    "alembic_check": "passed"
+  },
+  "verification": {
+    "backend_tests": 186,
+    "backend_coverage_percent": 80,
+    "frontend_tests": 5,
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "strict_mypy_source_files": 117,
+    "frontend_lint": "passed",
+    "frontend_build": "passed",
+    "api_smoke": "passed"
+  },
+  "known_limits": [
+    "No new qmt_sim order, cancel or fill was sent during this read-only validation.",
+    "Broker settlement and complete fee facts are not yet operationally validated.",
+    "Historical query evidence does not replace a trading-session one-lot acceptance test."
+  ]
+}

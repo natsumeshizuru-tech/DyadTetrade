@@ -1,0 +1,4 @@
+interface:
+  display_name: "vectorbt-expert"
+  short_description: "Safe project workflow for vectorbt-expert"
+  default_prompt: "Use $vectorbt-expert to complete this project task safely."

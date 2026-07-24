@@ -1,0 +1,4 @@
+interface:
+  display_name: "qmt-order-execution-safety"
+  short_description: "Safe project workflow for qmt-order-execution-safety"
+  default_prompt: "Use $qmt-order-execution-safety to complete this project task safely."

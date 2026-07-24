@@ -1,0 +1,83 @@
+qmt:
+  userdata_mini: null
+  data_dir: null
+  # Set local QMT paths with DYADTETRADE_DATA__QMT__* environment variables.
+  big_data_dir: null
+  require_client: true
+  site_packages: null
+  sidecar_python: null
+  call_timeout_seconds: 300
+  retries: 3
+  minimum_cache_free_gib: 10
+
+storage:
+  # Default for sibling DyadResearch/DyadTetrade checkouts; override when needed.
+  root: ../DyadResearch/data/sqlite
+  catalog: catalog.db
+  daily_bars: bars_1d.db
+  wal: true
+  busy_timeout_ms: 60000
+  batch_rows: 20000
+  minute_shard: market_month
+  minimum_free_gib: 20
+
+universe:
+  sectors:
+    - 沪深京A股
+    - 沪深ETF
+    - 沪深指数
+  include_delisted: true
+  extra_sectors: []
+
+backfill:
+  start_date: "20100101"
+  requested_end_date: "20260717"
+  periods:
+    - 1d
+    - 1m
+  enable_tick: false
+  download_batch_symbols: 50
+  read_batch_symbols: 50
+  overlap_trading_days: 3
+
+financial:
+  enabled: true
+  tables:
+    - Balance
+    - Income
+    - CashFlow
+    - Capital
+    - Top10FlowHolder
+    - Top10Holder
+    - HolderNum
+    - PershareIndex
+  download_batch_symbols: 50
+  source: xtdata_financial_v1
+
+reference_data:
+  sync_all_sectors: true
+  index_sectors:
+    - "\u6CAA\u6DF1\u6307\u6570"
+  extra_index_codes:
+    - 899050.BJ
+  write_batch_items: 250
+
+scheduler:
+  timezone: Asia/Shanghai
+  run_time: "16:10"
+  retries: 6
+  retry_delay_seconds: 300
+  minimum_coverage_ratio: 0.98
+
+archive:
+  root: data/archive/market_data
+  catalog_daily_backup: true
+  seal_previous_month: true
+  checksum: sha256
+  retention_daily_catalog_days: 30
+
+backtest:
+  default_adjustment: none
+  adjustment_anchor: query_end
+  forbid_live_trading_imports: true
+  result_root: reports/backtests/sqlite

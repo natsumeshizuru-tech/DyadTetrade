@@ -1,0 +1,4 @@
+interface:
+  display_name: "a-share-backtest-realism"
+  short_description: "Safe project workflow for a-share-backtest-realism"
+  default_prompt: "Use $a-share-backtest-realism to complete this project task safely."

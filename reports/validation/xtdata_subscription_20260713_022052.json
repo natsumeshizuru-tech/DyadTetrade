@@ -1,0 +1,102 @@
+{
+  "started_at": "2026-07-12T18:20:52.064955+00:00",
+  "single_symbol": "600519.SH",
+  "whole_markets": [
+    "SH",
+    "SZ"
+  ],
+  "orders_sent": 0,
+  "status": {
+    "active": true,
+    "subscriptions": [
+      {
+        "mode": "single",
+        "symbol": "600519.SH",
+        "period": "tick"
+      },
+      {
+        "mode": "whole",
+        "markets": [
+          "SH",
+          "SZ"
+        ],
+        "period": "tick"
+      }
+    ],
+    "subscription_count": 2,
+    "latest_symbol_count": 50213,
+    "received_batches": 2,
+    "received_symbols": 50213,
+    "dropped_batches": 0,
+    "queue_depth": 0,
+    "last_received_at": "2026-07-12T18:20:52.637330+00:00",
+    "quote_age_seconds": 0.110934,
+    "fresh": true,
+    "last_error": null
+  },
+  "sample": {
+    "600519.SH": {
+      "time": 1783668571000,
+      "lastPrice": 1204.98,
+      "open": 1182.2,
+      "high": 1204.98,
+      "low": 1170.28,
+      "lastClose": 1182.19,
+      "amount": 3976400.0,
+      "volume": 33,
+      "pvolume": 3300,
+      "stockStatus": 12,
+      "openInt": 22,
+      "transactionNum": 0,
+      "lastSettlementPrice": 1182.19,
+      "settlementPrice": 0.0,
+      "pe": 0.0,
+      "askPrice": [
+        1204.98,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bidPrice": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "askVol": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bidVol": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "volRatio": 0.0,
+      "speed1Min": 0.0,
+      "speed5Min": 0.0,
+      "received_at": "2026-07-12T18:20:52.486919+00:00"
+    }
+  },
+  "stopped": {
+    "active": false,
+    "subscriptions": [],
+    "subscription_count": 0,
+    "latest_symbol_count": 50213,
+    "received_batches": 2,
+    "received_symbols": 50213,
+    "dropped_batches": 0,
+    "queue_depth": 0,
+    "last_received_at": "2026-07-12T18:20:52.637330+00:00",
+    "quote_age_seconds": 0.110934,
+    "fresh": true,
+    "last_error": null
+  }
+}

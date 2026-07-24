@@ -1,0 +1,434 @@
+{
+  "config": {
+    "base_backtest": {
+      "strategy_name": "moving_average_cross",
+      "strategy_parameters": {
+        "symbol": "510300.SH",
+        "quantity": 10000
+      },
+      "symbols": [
+        "510300.SH"
+      ],
+      "start_date": "2026-05-06",
+      "end_date": "2026-07-10",
+      "initial_cash": "1000000",
+      "commission_rate": "0.0003",
+      "minimum_commission": "5",
+      "stamp_duty_rate": "0.0005",
+      "transfer_fee_rate": "0",
+      "slippage_bps": "0",
+      "max_volume_participation": "0.1",
+      "allow_partial_fills": true,
+      "enforce_t1": true,
+      "conservative_limit_board": true,
+      "execution_delay_bars": 1,
+      "random_seed": 7,
+      "benchmark_symbol": "000300.SH",
+      "data_version": "bt_ready-v1"
+    },
+    "parameter_space": {
+      "fast": [
+        2,
+        3
+      ],
+      "slow": [
+        5,
+        8,
+        10
+      ]
+    },
+    "method": "grid",
+    "max_trials": 6,
+    "parallel_workers": 2,
+    "random_seed": 7,
+    "split_ratio": 0.7,
+    "objective_weights": {
+      "total_return": 1.0,
+      "max_drawdown": 0.2
+    },
+    "walk_forward_folds": 2,
+    "monte_carlo_simulations": 100
+  },
+  "optimization": {
+    "method": "grid",
+    "best": {
+      "number": 5,
+      "parameters": {
+        "fast": 3,
+        "slow": 10
+      },
+      "in_sample_objectives": {
+        "total_return": -0.000937900000000047,
+        "max_drawdown": -0.0017883108617314791
+      },
+      "out_of_sample_objectives": {
+        "total_return": 0.0,
+        "max_drawdown": 0.0
+      },
+      "robust_score": -0.0003238905430865857
+    },
+    "trials": [
+      {
+        "number": 0,
+        "parameters": {
+          "fast": 2,
+          "slow": 5
+        },
+        "in_sample_objectives": {
+          "total_return": -0.0009454300000000249,
+          "max_drawdown": -0.002943816888362316
+        },
+        "out_of_sample_objectives": {
+          "total_return": -0.001843670000000075,
+          "max_drawdown": -0.001843670000000075
+        },
+        "robust_score": -0.0023819566555819908
+      },
+      {
+        "number": 1,
+        "parameters": {
+          "fast": 2,
+          "slow": 8
+        },
+        "in_sample_objectives": {
+          "total_return": -0.001221519999999976,
+          "max_drawdown": -0.002545290343373696
+        },
+        "out_of_sample_objectives": {
+          "total_return": -0.0006040699999999566,
+          "max_drawdown": -0.0010648699999999955
+        },
+        "robust_score": -0.0010454275171686456
+      },
+      {
+        "number": 2,
+        "parameters": {
+          "fast": 2,
+          "slow": 10
+        },
+        "in_sample_objectives": {
+          "total_return": -0.001731670000000074,
+          "max_drawdown": -0.002471670000000037
+        },
+        "out_of_sample_objectives": {
+          "total_return": 0.0,
+          "max_drawdown": 0.0
+        },
+        "robust_score": -0.0005565010000000203
+      },
+      {
+        "number": 3,
+        "parameters": {
+          "fast": 3,
+          "slow": 5
+        },
+        "in_sample_objectives": {
+          "total_return": -0.0016153399999999651,
+          "max_drawdown": -0.003824951473146543
+        },
+        "out_of_sample_objectives": {
+          "total_return": -0.0005240400000000589,
+          "max_drawdown": -0.001688809119361423
+        },
+        "robust_score": -0.001241433941561576
+      },
+      {
+        "number": 4,
+        "parameters": {
+          "fast": 3,
+          "slow": 8
+        },
+        "in_sample_objectives": {
+          "total_return": -0.0013353199999999177,
+          "max_drawdown": -0.002297601788831649
+        },
+        "out_of_sample_objectives": {
+          "total_return": -0.0006040699999999566,
+          "max_drawdown": -0.0010648699999999955
+        },
+        "robust_score": -0.0010614930894415286
+      },
+      {
+        "number": 5,
+        "parameters": {
+          "fast": 3,
+          "slow": 10
+        },
+        "in_sample_objectives": {
+          "total_return": -0.000937900000000047,
+          "max_drawdown": -0.0017883108617314791
+        },
+        "out_of_sample_objectives": {
+          "total_return": 0.0,
+          "max_drawdown": 0.0
+        },
+        "robust_score": -0.0003238905430865857
+      }
+    ],
+    "pareto_front": [
+      {
+        "number": 2,
+        "parameters": {
+          "fast": 2,
+          "slow": 10
+        },
+        "in_sample_objectives": {
+          "total_return": -0.001731670000000074,
+          "max_drawdown": -0.002471670000000037
+        },
+        "out_of_sample_objectives": {
+          "total_return": 0.0,
+          "max_drawdown": 0.0
+        },
+        "robust_score": -0.0005565010000000203
+      },
+      {
+        "number": 5,
+        "parameters": {
+          "fast": 3,
+          "slow": 10
+        },
+        "in_sample_objectives": {
+          "total_return": -0.000937900000000047,
+          "max_drawdown": -0.0017883108617314791
+        },
+        "out_of_sample_objectives": {
+          "total_return": 0.0,
+          "max_drawdown": 0.0
+        },
+        "robust_score": -0.0003238905430865857
+      }
+    ],
+    "warnings": [
+      "Pareto membership does not replace untouched out-of-sample validation.",
+      "Objective weights and nearby parameter performance must be reported together."
+    ]
+  },
+  "heatmap": [
+    {
+      "number": 0,
+      "parameters": {
+        "fast": 2,
+        "slow": 5
+      },
+      "in_sample_objectives": {
+        "total_return": -0.0009454300000000249,
+        "max_drawdown": -0.002943816888362316
+      },
+      "out_of_sample_objectives": {
+        "total_return": -0.001843670000000075,
+        "max_drawdown": -0.001843670000000075
+      },
+      "robust_score": -0.0023819566555819908
+    },
+    {
+      "number": 1,
+      "parameters": {
+        "fast": 2,
+        "slow": 8
+      },
+      "in_sample_objectives": {
+        "total_return": -0.001221519999999976,
+        "max_drawdown": -0.002545290343373696
+      },
+      "out_of_sample_objectives": {
+        "total_return": -0.0006040699999999566,
+        "max_drawdown": -0.0010648699999999955
+      },
+      "robust_score": -0.0010454275171686456
+    },
+    {
+      "number": 2,
+      "parameters": {
+        "fast": 2,
+        "slow": 10
+      },
+      "in_sample_objectives": {
+        "total_return": -0.001731670000000074,
+        "max_drawdown": -0.002471670000000037
+      },
+      "out_of_sample_objectives": {
+        "total_return": 0.0,
+        "max_drawdown": 0.0
+      },
+      "robust_score": -0.0005565010000000203
+    },
+    {
+      "number": 3,
+      "parameters": {
+        "fast": 3,
+        "slow": 5
+      },
+      "in_sample_objectives": {
+        "total_return": -0.0016153399999999651,
+        "max_drawdown": -0.003824951473146543
+      },
+      "out_of_sample_objectives": {
+        "total_return": -0.0005240400000000589,
+        "max_drawdown": -0.001688809119361423
+      },
+      "robust_score": -0.001241433941561576
+    },
+    {
+      "number": 4,
+      "parameters": {
+        "fast": 3,
+        "slow": 8
+      },
+      "in_sample_objectives": {
+        "total_return": -0.0013353199999999177,
+        "max_drawdown": -0.002297601788831649
+      },
+      "out_of_sample_objectives": {
+        "total_return": -0.0006040699999999566,
+        "max_drawdown": -0.0010648699999999955
+      },
+      "robust_score": -0.0010614930894415286
+    },
+    {
+      "number": 5,
+      "parameters": {
+        "fast": 3,
+        "slow": 10
+      },
+      "in_sample_objectives": {
+        "total_return": -0.000937900000000047,
+        "max_drawdown": -0.0017883108617314791
+      },
+      "out_of_sample_objectives": {
+        "total_return": 0.0,
+        "max_drawdown": 0.0
+      },
+      "robust_score": -0.0003238905430865857
+    }
+  ],
+  "robustness": {
+    "scenarios": [
+      {
+        "scenario": {
+          "name": "base",
+          "commission_multiplier": 1.0,
+          "slippage_bps": 0.0,
+          "execution_delay_bars": 1,
+          "volume_participation": 1.0,
+          "start_offset_bars": 0
+        },
+        "score": -0.0013320400000000898
+      },
+      {
+        "scenario": {
+          "name": "double_commission",
+          "commission_multiplier": 2.0,
+          "slippage_bps": 0.0,
+          "execution_delay_bars": 1,
+          "volume_participation": 1.0,
+          "start_offset_bars": 0
+        },
+        "score": -0.0014205800000000046
+      },
+      {
+        "scenario": {
+          "name": "slippage_5bps",
+          "commission_multiplier": 1.0,
+          "slippage_bps": 5.0,
+          "execution_delay_bars": 1,
+          "volume_participation": 1.0,
+          "start_offset_bars": 0
+        },
+        "score": -0.0014795749999999552
+      },
+      {
+        "scenario": {
+          "name": "delay_two_bars",
+          "commission_multiplier": 1.0,
+          "slippage_bps": 0.0,
+          "execution_delay_bars": 2,
+          "volume_participation": 1.0,
+          "start_offset_bars": 0
+        },
+        "score": -0.0037248699999999912
+      },
+      {
+        "scenario": {
+          "name": "capacity_5pct",
+          "commission_multiplier": 1.0,
+          "slippage_bps": 0.0,
+          "execution_delay_bars": 1,
+          "volume_participation": 0.05,
+          "start_offset_bars": 0
+        },
+        "score": -0.0013320400000000898
+      },
+      {
+        "scenario": {
+          "name": "start_one_bar_later",
+          "commission_multiplier": 1.0,
+          "slippage_bps": 0.0,
+          "execution_delay_bars": 1,
+          "volume_participation": 1.0,
+          "start_offset_bars": 1
+        },
+        "score": -0.0013320400000000898
+      }
+    ],
+    "walk_forward": [
+      {
+        "fold": 0,
+        "train_start": "2026-05-06 00:00:00",
+        "train_end": "2026-06-05 00:00:00",
+        "test_start": "2026-06-08 00:00:00",
+        "test_end": "2026-06-24 00:00:00",
+        "score": -0.0011352399999999818
+      },
+      {
+        "fold": 1,
+        "train_start": "2026-05-06 00:00:00",
+        "train_end": "2026-06-24 00:00:00",
+        "test_start": "2026-06-25 00:00:00",
+        "test_end": "2026-07-10 00:00:00",
+        "score": 0.0
+      }
+    ],
+    "monte_carlo": {
+      "simulations": 100.0,
+      "terminal_p05": -0.006553250676442979,
+      "terminal_median": -0.0012348296911774415,
+      "terminal_p95": 0.003612817495325414,
+      "probability_of_loss": 0.63,
+      "max_drawdown_p95": 0.007321939049562803
+    },
+    "warnings": [
+      "Walk-forward folds preserve time order and never shuffle observations.",
+      "Monte Carlo resampling measures path sensitivity, not future expected return.",
+      "Multiple-testing and capacity assumptions remain explicit release gates."
+    ]
+  },
+  "best_backtest": {
+    "parameters": {
+      "fast": 3,
+      "slow": 10
+    },
+    "metrics": {
+      "total_return": -0.0013320400000000898,
+      "annual_return": -0.007121285267976618,
+      "annual_volatility": 0.007575279712688322,
+      "max_drawdown": -0.0019246857490125002,
+      "sharpe": -0.9397105258188992,
+      "sortino": -1.2474396149071727,
+      "calmar": -3.6999729808517263,
+      "information_ratio": 0.0,
+      "beta": 0.0,
+      "alpha": 0.0,
+      "win_rate": 0.0,
+      "profit_loss_ratio": 0.0,
+      "profit_factor": 0.0,
+      "turnover": 0.29537219870123976,
+      "trade_count": 6.0,
+      "holding_concentration": 0.0,
+      "excess_drawdown": 0.0,
+      "observations": 47.0
+    },
+    "data_fingerprint": "7634411354118c49dcd97c3a4aa9c197d18b7e61c3f6834a1260ef3c3e283efc"
+  },
+  "resumed_trials": 0
+}

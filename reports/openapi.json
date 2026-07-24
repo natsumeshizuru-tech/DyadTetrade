@@ -1,0 +1,2763 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "DyadTetrade",
+    "description": "Trading execution, paper simulation, OMS, risk, realtime market data, account reconciliation and strategy runtime monitoring. Historical data, factor research and backtesting belong to DyadResearch.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Health",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Api V1 Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/modules": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Modules",
+        "operationId": "modules_api_v1_modules_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ModuleInfo"
+                  },
+                  "type": "array",
+                  "title": "Response Modules Api V1 Modules Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/integrations/xtquant": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Xtquant Status",
+        "operationId": "xtquant_status_api_v1_integrations_xtquant_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Xtquant Status Api V1 Integrations Xtquant Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ready": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Readiness",
+        "operationId": "readiness_api_v1_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Readiness Api V1 Ready Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/monitoring/broker-trades": {
+      "get": {
+        "tags": [
+          "monitoring"
+        ],
+        "summary": "Broker Trades",
+        "operationId": "broker_trades_api_v1_monitoring_broker_trades_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 2000,
+              "minimum": 1,
+              "default": 500,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Broker Trades Api V1 Monitoring Broker Trades Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/monitoring/market-session": {
+      "get": {
+        "tags": [
+          "monitoring"
+        ],
+        "summary": "Market Session",
+        "operationId": "market_session_api_v1_monitoring_market_session_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Market Session Api V1 Monitoring Market Session Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/monitoring/strategies": {
+      "get": {
+        "tags": [
+          "monitoring"
+        ],
+        "summary": "Strategy Monitor",
+        "operationId": "strategy_monitor_api_v1_monitoring_strategies_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Strategy Monitor Api V1 Monitoring Strategies Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/monitoring/strategies/{strategy_id}": {
+      "get": {
+        "tags": [
+          "monitoring"
+        ],
+        "summary": "Strategy Runtime Detail",
+        "operationId": "strategy_runtime_detail_api_v1_monitoring_strategies__strategy_id__get",
+        "parameters": [
+          {
+            "name": "strategy_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Strategy Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Strategy Runtime Detail Api V1 Monitoring Strategies  Strategy Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/monitoring/account": {
+      "get": {
+        "tags": [
+          "monitoring"
+        ],
+        "summary": "Account Monitor",
+        "operationId": "account_monitor_api_v1_monitoring_account_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Account Monitor Api V1 Monitoring Account Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/monitoring/delivery-statements": {
+      "get": {
+        "tags": [
+          "monitoring"
+        ],
+        "summary": "Delivery Statements",
+        "operationId": "delivery_statements_api_v1_monitoring_delivery_statements_get",
+        "parameters": [
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Start Date"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "End Date"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Symbol"
+            }
+          },
+          {
+            "name": "strategy_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Strategy Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 2000,
+              "minimum": 1,
+              "default": 500,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Delivery Statements Api V1 Monitoring Delivery Statements Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/monitoring/delivery-statements/export.csv": {
+      "get": {
+        "tags": [
+          "monitoring"
+        ],
+        "summary": "Export Delivery Statements",
+        "operationId": "export_delivery_statements_api_v1_monitoring_delivery_statements_export_csv_get",
+        "parameters": [
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Start Date"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "End Date"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Symbol"
+            }
+          },
+          {
+            "name": "strategy_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Strategy Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/strategies": {
+      "get": {
+        "tags": [
+          "strategies"
+        ],
+        "summary": "Strategies",
+        "operationId": "strategies_api_v1_strategies_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Strategies Api V1 Strategies Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/strategies/{name}/enabled": {
+      "put": {
+        "tags": [
+          "strategies"
+        ],
+        "summary": "Set Strategy Enabled",
+        "operationId": "set_strategy_enabled_api_v1_strategies__name__enabled_put",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StrategyEnabledRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Set Strategy Enabled Api V1 Strategies  Name  Enabled Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/strategy-bundles": {
+      "get": {
+        "tags": [
+          "strategy-bundles"
+        ],
+        "summary": "List Strategy Bundles",
+        "operationId": "list_strategy_bundles_api_v1_strategy_bundles_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response List Strategy Bundles Api V1 Strategy Bundles Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/strategy-bundles/validate": {
+      "post": {
+        "tags": [
+          "strategy-bundles"
+        ],
+        "summary": "Validate Strategy Bundle",
+        "operationId": "validate_strategy_bundle_api_v1_strategy_bundles_validate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleValidationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Validate Strategy Bundle Api V1 Strategy Bundles Validate Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/strategy-bundles/import": {
+      "post": {
+        "tags": [
+          "strategy-bundles"
+        ],
+        "summary": "Import Strategy Bundle",
+        "description": "Validate a research bundle and register a draft; activation remains manual.",
+        "operationId": "import_strategy_bundle_api_v1_strategy_bundles_import_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BundleImportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Import Strategy Bundle Api V1 Strategy Bundles Import Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/status": {
+      "get": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Execution Status",
+        "operationId": "execution_status_api_v1_execution_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Execution Status Api V1 Execution Status Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/connect": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Connect Execution",
+        "operationId": "connect_execution_api_v1_execution_connect_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Connect Execution Api V1 Execution Connect Post"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/reconcile": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Reconcile Execution",
+        "operationId": "reconcile_execution_api_v1_execution_reconcile_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Reconcile Execution Api V1 Execution Reconcile Post"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/orders": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Submit Qmt Order",
+        "operationId": "submit_qmt_order_api_v1_execution_orders_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualQmtOrder"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Submit Qmt Order Api V1 Execution Orders Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/automated-orders": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Submit Automated Qmt Order",
+        "operationId": "submit_automated_qmt_order_api_v1_execution_automated_orders_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutomatedQmtOrder"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Submit Automated Qmt Order Api V1 Execution Automated Orders Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/universe/releases": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Build Execution Universe",
+        "operationId": "build_execution_universe_api_v1_execution_universe_releases_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionUniverseBuild"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Build Execution Universe Api V1 Execution Universe Releases Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/universe/releases/latest": {
+      "get": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Latest Execution Universe",
+        "operationId": "latest_execution_universe_api_v1_execution_universe_releases_latest_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "title": "Response Latest Execution Universe Api V1 Execution Universe Releases Latest Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/universe/releases/{release_id}/review": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Review Execution Universe",
+        "operationId": "review_execution_universe_api_v1_execution_universe_releases__release_id__review_post",
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Release Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReleaseAction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Review Execution Universe Api V1 Execution Universe Releases  Release Id  Review Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/universe/releases/{release_id}/activate": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Activate Execution Universe",
+        "operationId": "activate_execution_universe_api_v1_execution_universe_releases__release_id__activate_post",
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Release Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReleaseAction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Activate Execution Universe Api V1 Execution Universe Releases  Release Id  Activate Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/universe/releases/{release_id}/revoke": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Revoke Execution Universe",
+        "operationId": "revoke_execution_universe_api_v1_execution_universe_releases__release_id__revoke_post",
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Release Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReleaseAction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Revoke Execution Universe Api V1 Execution Universe Releases  Release Id  Revoke Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/strategy-releases": {
+      "get": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "List Strategy Execution Releases",
+        "operationId": "list_strategy_execution_releases_api_v1_execution_strategy_releases_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response List Strategy Execution Releases Api V1 Execution Strategy Releases Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Create Strategy Execution Release",
+        "operationId": "create_strategy_execution_release_api_v1_execution_strategy_releases_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StrategyReleaseCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Create Strategy Execution Release Api V1 Execution Strategy Releases Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/strategy-releases/{release_id}/activate": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Activate Strategy Execution Release",
+        "operationId": "activate_strategy_execution_release_api_v1_execution_strategy_releases__release_id__activate_post",
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Release Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReleaseAction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Activate Strategy Execution Release Api V1 Execution Strategy Releases  Release Id  Activate Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/strategy-releases/{release_id}/revoke": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Revoke Strategy Execution Release",
+        "operationId": "revoke_strategy_execution_release_api_v1_execution_strategy_releases__release_id__revoke_post",
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Release Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReleaseAction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Revoke Strategy Execution Release Api V1 Execution Strategy Releases  Release Id  Revoke Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/orders/{qmt_order_id}/cancel": {
+      "post": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Cancel Qmt Order",
+        "operationId": "cancel_qmt_order_api_v1_execution_orders__qmt_order_id__cancel_post",
+        "parameters": [
+          {
+            "name": "qmt_order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Qmt Order Id"
+            }
+          },
+          {
+            "name": "confirm_simulated_order",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Confirm Simulated Order"
+            }
+          },
+          {
+            "name": "confirm_live_cancel",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Confirm Live Cancel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Cancel Qmt Order Api V1 Execution Orders  Qmt Order Id  Cancel Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/risk-state": {
+      "get": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Risk State",
+        "operationId": "risk_state_api_v1_execution_risk_state_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Risk State Api V1 Execution Risk State Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Update Risk State",
+        "operationId": "update_risk_state_api_v1_execution_risk_state_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RiskStateUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Update Risk State Api V1 Execution Risk State Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/switches": {
+      "put": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Update Switches",
+        "operationId": "update_switches_api_v1_execution_switches_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Update Switches Api V1 Execution Switches Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/execution/release-gate": {
+      "get": {
+        "tags": [
+          "execution"
+        ],
+        "summary": "Release Gate",
+        "operationId": "release_gate_api_v1_execution_release_gate_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Release Gate Api V1 Execution Release Gate Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/status": {
+      "get": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Realtime Status",
+        "operationId": "realtime_status_api_v1_realtime_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Realtime Status Api V1 Realtime Status Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/subscriptions/status": {
+      "get": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Subscription Status",
+        "operationId": "subscription_status_api_v1_realtime_subscriptions_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Subscription Status Api V1 Realtime Subscriptions Status Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/subscriptions/single": {
+      "post": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Subscribe Single",
+        "operationId": "subscribe_single_api_v1_realtime_subscriptions_single_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SingleSubscriptionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Subscribe Single Api V1 Realtime Subscriptions Single Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/subscriptions/whole": {
+      "post": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Subscribe Whole",
+        "operationId": "subscribe_whole_api_v1_realtime_subscriptions_whole_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WholeSubscriptionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Subscribe Whole Api V1 Realtime Subscriptions Whole Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/subscriptions": {
+      "delete": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Stop Subscriptions",
+        "operationId": "stop_subscriptions_api_v1_realtime_subscriptions_delete",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Stop Subscriptions Api V1 Realtime Subscriptions Delete"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/subscriptions/latest": {
+      "get": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Subscription Latest",
+        "operationId": "subscription_latest_api_v1_realtime_subscriptions_latest_get",
+        "parameters": [
+          {
+            "name": "symbols",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Symbols"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 200,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Subscription Latest Api V1 Realtime Subscriptions Latest Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/watchlist": {
+      "put": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Update Watchlist",
+        "operationId": "update_watchlist_api_v1_realtime_watchlist_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Update Watchlist Api V1 Realtime Watchlist Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/mainboard-small-cap/refresh": {
+      "post": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Refresh Mainboard Small Cap",
+        "operationId": "refresh_mainboard_small_cap_api_v1_realtime_mainboard_small_cap_refresh_post",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Refresh Mainboard Small Cap Api V1 Realtime Mainboard Small Cap Refresh Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/realtime/strategies/tick-momentum-small-cap/start": {
+      "post": {
+        "tags": [
+          "realtime"
+        ],
+        "summary": "Start Tick Momentum Small Cap",
+        "operationId": "start_tick_momentum_small_cap_api_v1_realtime_strategies_tick_momentum_small_cap_start_post",
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Start Tick Momentum Small Cap Api V1 Realtime Strategies Tick Momentum Small Cap Start Post"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/paper/snapshot": {
+      "get": {
+        "tags": [
+          "paper-trading"
+        ],
+        "summary": "Paper Snapshot",
+        "operationId": "paper_snapshot_api_v1_paper_snapshot_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Paper Snapshot Api V1 Paper Snapshot Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/paper/market/bars": {
+      "post": {
+        "tags": [
+          "paper-trading"
+        ],
+        "summary": "Paper Market Bars",
+        "operationId": "paper_market_bars_api_v1_paper_market_bars_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "$ref": "#/components/schemas/PaperBarInput"
+                },
+                "type": "array",
+                "title": "Bars"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Paper Market Bars Api V1 Paper Market Bars Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/paper/orders": {
+      "post": {
+        "tags": [
+          "paper-trading"
+        ],
+        "summary": "Paper Order",
+        "operationId": "paper_order_api_v1_paper_orders_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaperOrderInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Paper Order Api V1 Paper Orders Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/paper/orders/{order_id}/cancel": {
+      "post": {
+        "tags": [
+          "paper-trading"
+        ],
+        "summary": "Paper Cancel",
+        "operationId": "paper_cancel_api_v1_paper_orders__order_id__cancel_post",
+        "parameters": [
+          {
+            "name": "order_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Order Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Paper Cancel Api V1 Paper Orders  Order Id  Cancel Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/paper/strategies": {
+      "get": {
+        "tags": [
+          "paper-trading"
+        ],
+        "summary": "Paper Strategies",
+        "operationId": "paper_strategies_api_v1_paper_strategies_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Paper Strategies Api V1 Paper Strategies Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/paper/strategies/start": {
+      "post": {
+        "tags": [
+          "paper-trading"
+        ],
+        "summary": "Start Paper Strategy",
+        "operationId": "start_paper_strategy_api_v1_paper_strategies_start_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaperStrategyStartInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Start Paper Strategy Api V1 Paper Strategies Start Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/paper/strategies/{strategy_id}/stop": {
+      "post": {
+        "tags": [
+          "paper-trading"
+        ],
+        "summary": "Stop Paper Strategy",
+        "operationId": "stop_paper_strategy_api_v1_paper_strategies__strategy_id__stop_post",
+        "parameters": [
+          {
+            "name": "strategy_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Strategy Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Stop Paper Strategy Api V1 Paper Strategies  Strategy Id  Stop Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AutomatedQmtOrder": {
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "title": "Symbol"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Direction"
+          },
+          "quantity": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Quantity"
+          },
+          "limit_price": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Limit Price"
+          },
+          "strategy_id": {
+            "type": "string",
+            "title": "Strategy Id"
+          },
+          "strategy_version": {
+            "type": "string",
+            "title": "Strategy Version"
+          },
+          "strategy_release_id": {
+            "type": "string",
+            "title": "Strategy Release Id"
+          },
+          "signal_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Signal Id"
+          },
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parameters"
+          }
+        },
+        "type": "object",
+        "required": [
+          "symbol",
+          "direction",
+          "quantity",
+          "limit_price",
+          "strategy_id",
+          "strategy_version",
+          "strategy_release_id",
+          "signal_id"
+        ],
+        "title": "AutomatedQmtOrder"
+      },
+      "BundleImportRequest": {
+        "properties": {
+          "bundle_name": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Bundle Name"
+          },
+          "execution_target": {
+            "type": "string",
+            "enum": [
+              "qmt_sim",
+              "qmt_live"
+            ],
+            "title": "Execution Target",
+            "default": "qmt_sim"
+          },
+          "universe_release_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Universe Release Id"
+          },
+          "actor": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 2,
+            "title": "Actor",
+            "default": "operator"
+          }
+        },
+        "type": "object",
+        "required": [
+          "bundle_name",
+          "universe_release_id"
+        ],
+        "title": "BundleImportRequest"
+      },
+      "BundleValidationRequest": {
+        "properties": {
+          "bundle_name": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Bundle Name"
+          },
+          "execution_target": {
+            "type": "string",
+            "enum": [
+              "paper",
+              "qmt_sim",
+              "qmt_live"
+            ],
+            "title": "Execution Target",
+            "default": "paper"
+          },
+          "actor": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 2,
+            "title": "Actor",
+            "default": "operator"
+          }
+        },
+        "type": "object",
+        "required": [
+          "bundle_name"
+        ],
+        "title": "BundleValidationRequest"
+      },
+      "Direction": {
+        "type": "string",
+        "enum": [
+          "buy",
+          "sell"
+        ],
+        "title": "Direction"
+      },
+      "ExecutionMode": {
+        "type": "string",
+        "enum": [
+          "disabled",
+          "paper",
+          "qmt_sim",
+          "qmt_live"
+        ],
+        "title": "ExecutionMode"
+      },
+      "ExecutionUniverseBuild": {
+        "properties": {
+          "execution_mode": {
+            "$ref": "#/components/schemas/ExecutionMode",
+            "default": "qmt_sim"
+          },
+          "asset_types": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Asset Types"
+          },
+          "exchanges": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Exchanges"
+          },
+          "exclude_st": {
+            "type": "boolean",
+            "title": "Exclude St",
+            "default": true
+          },
+          "exclude_delisting": {
+            "type": "boolean",
+            "title": "Exclude Delisting",
+            "default": true
+          },
+          "minimum_listed_days": {
+            "type": "integer",
+            "maximum": 3650.0,
+            "minimum": 0.0,
+            "title": "Minimum Listed Days",
+            "default": 20
+          },
+          "require_daily_data": {
+            "type": "boolean",
+            "title": "Require Daily Data",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "ExecutionUniverseBuild"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ManualQmtOrder": {
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "title": "Symbol"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Direction"
+          },
+          "quantity": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Quantity"
+          },
+          "limit_price": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Limit Price"
+          },
+          "strategy_id": {
+            "type": "string",
+            "title": "Strategy Id",
+            "default": "manual"
+          },
+          "client_order_id": {
+            "type": "string",
+            "maxLength": 48,
+            "minLength": 1,
+            "title": "Client Order Id"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          },
+          "confirm_simulated_order": {
+            "type": "boolean",
+            "title": "Confirm Simulated Order",
+            "default": false
+          },
+          "confirm_live_order": {
+            "type": "boolean",
+            "title": "Confirm Live Order",
+            "default": false
+          },
+          "live_confirmation": {
+            "type": "string",
+            "title": "Live Confirmation",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "symbol",
+          "direction",
+          "quantity",
+          "limit_price"
+        ],
+        "title": "ManualQmtOrder"
+      },
+      "ModuleInfo": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "Key"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "phase": {
+            "type": "string",
+            "enum": [
+              "foundation",
+              "trading",
+              "operations"
+            ],
+            "title": "Phase"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "scaffold",
+              "available"
+            ],
+            "title": "Status",
+            "default": "scaffold"
+          }
+        },
+        "type": "object",
+        "required": [
+          "key",
+          "name",
+          "phase"
+        ],
+        "title": "ModuleInfo"
+      },
+      "PaperBarInput": {
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "title": "Symbol"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "open": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Open"
+          },
+          "high": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "High"
+          },
+          "low": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Low"
+          },
+          "close": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Close"
+          },
+          "volume": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Volume"
+          },
+          "suspended": {
+            "type": "boolean",
+            "title": "Suspended",
+            "default": false
+          },
+          "limit_up": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit Up"
+          },
+          "limit_down": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit Down"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "symbol",
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume"
+        ],
+        "title": "PaperBarInput"
+      },
+      "PaperOrderInput": {
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "title": "Symbol"
+          },
+          "direction": {
+            "$ref": "#/components/schemas/Direction"
+          },
+          "quantity": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Quantity"
+          },
+          "strategy_id": {
+            "type": "string",
+            "title": "Strategy Id",
+            "default": "manual-paper"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "title": "Idempotency Key"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "symbol",
+          "direction",
+          "quantity",
+          "idempotency_key"
+        ],
+        "title": "PaperOrderInput"
+      },
+      "PaperStrategyStartInput": {
+        "properties": {
+          "strategy_name": {
+            "type": "string",
+            "title": "Strategy Name"
+          },
+          "strategy_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Strategy Id"
+          },
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parameters"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "strategy_name"
+        ],
+        "title": "PaperStrategyStartInput"
+      },
+      "ReleaseAction": {
+        "properties": {
+          "actor": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 2,
+            "title": "Actor"
+          },
+          "confirmation": {
+            "type": "string",
+            "title": "Confirmation",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "actor"
+        ],
+        "title": "ReleaseAction"
+      },
+      "RiskOperatingState": {
+        "type": "string",
+        "enum": [
+          "NORMAL",
+          "REDUCE_ONLY",
+          "CANCEL_ONLY",
+          "HALTED",
+          "RECOVERY"
+        ],
+        "title": "RiskOperatingState"
+      },
+      "RiskStateUpdate": {
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/RiskOperatingState"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1024,
+            "minLength": 3,
+            "title": "Reason"
+          },
+          "actor": {
+            "type": "string",
+            "title": "Actor",
+            "default": "operator"
+          }
+        },
+        "type": "object",
+        "required": [
+          "state",
+          "reason"
+        ],
+        "title": "RiskStateUpdate"
+      },
+      "SingleSubscriptionRequest": {
+        "properties": {
+          "symbols": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Symbols"
+          },
+          "period": {
+            "type": "string",
+            "title": "Period",
+            "default": "tick"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "symbols"
+        ],
+        "title": "SingleSubscriptionRequest"
+      },
+      "StrategyEnabledRequest": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled"
+          }
+        },
+        "type": "object",
+        "required": [
+          "enabled"
+        ],
+        "title": "StrategyEnabledRequest"
+      },
+      "StrategyReleaseCreate": {
+        "properties": {
+          "execution_mode": {
+            "$ref": "#/components/schemas/ExecutionMode",
+            "default": "qmt_sim"
+          },
+          "strategy_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Strategy Id"
+          },
+          "strategy_name": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Strategy Name"
+          },
+          "strategy_version": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Strategy Version"
+          },
+          "universe_release_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Universe Release Id"
+          },
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parameters"
+          },
+          "max_order_notional": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Max Order Notional"
+          },
+          "max_daily_notional": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Max Daily Notional"
+          }
+        },
+        "type": "object",
+        "required": [
+          "strategy_id",
+          "strategy_name",
+          "strategy_version",
+          "universe_release_id",
+          "max_order_notional",
+          "max_daily_notional"
+        ],
+        "title": "StrategyReleaseCreate"
+      },
+      "SwitchUpdate": {
+        "properties": {
+          "kill_switch": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Kill Switch"
+          },
+          "cancel_only": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cancel Only"
+          },
+          "no_new_positions": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "No New Positions"
+          }
+        },
+        "type": "object",
+        "title": "SwitchUpdate"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WatchlistUpdate": {
+        "properties": {
+          "symbols": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 500,
+            "title": "Symbols"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "symbols"
+        ],
+        "title": "WatchlistUpdate"
+      },
+      "WholeSubscriptionRequest": {
+        "properties": {
+          "markets": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Markets"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "WholeSubscriptionRequest"
+      }
+    }
+  }
+}

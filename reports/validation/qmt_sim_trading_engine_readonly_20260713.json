@@ -1,0 +1,46 @@
+{
+  "tested_at": "2026-07-13T02:33:58.7069963+08:00",
+  "scope": "MiniQMT simulated-account read-only trading-engine acceptance",
+  "order_sent": false,
+  "execution_mode": "qmt_sim",
+  "live_trading_enabled": false,
+  "engine_online": true,
+  "connected": true,
+  "subscribed": true,
+  "account_healthy": true,
+  "account": "masked",
+  "risk_state": "NORMAL",
+  "risk_version": 27,
+  "reconciled_at": "2026-07-12T18:33:06.563283+00:00",
+  "listeners": {
+    "trading_engine_8011": 1,
+    "api_8000": 1,
+    "frontend_5173": 1
+  },
+  "checks": {
+    "authenticated_engine_status": "passed",
+    "unauthenticated_engine_status": "rejected_403",
+    "api_proxy_status": "passed",
+    "preopen_check": "passed",
+    "monitor_websocket": "passed",
+    "single_engine_listener": "passed",
+    "no_reload_no_multiple_workers": "passed",
+    "graceful_stop_left_zero_listeners": "passed",
+    "forced_engine_termination_failed_closed": "RECOVERY",
+    "restart_reconciliation": "passed",
+    "qmt_live_default_rejection": "passed"
+  },
+  "tests": {
+    "targeted_pytest": 23,
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "strict_mypy_files": 8,
+    "strict_mypy": "passed"
+  },
+  "privacy": {
+    "full_account_id_recorded": false,
+    "userdata_path_recorded": false,
+    "ipc_token_recorded": false,
+    "persistent_engine_stdout_enabled": false
+  }
+}

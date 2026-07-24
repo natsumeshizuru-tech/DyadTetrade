@@ -1,0 +1,83 @@
+{
+  "validation_id": "qmt_sim_broker_fees_20260713",
+  "observed_at": "2026-07-13T18:50:00+08:00",
+  "execution_mode": "qmt_sim",
+  "safety": {
+    "live_trading_enabled": false,
+    "order_sent": false,
+    "cancel_sent": false,
+    "qmt_live_trade_rows": 0
+  },
+  "backup": {
+    "directory": "data/sqlite/backups/pre-qmt-fee-reconcile-20260713-183614",
+    "sqlite_sha256": "35B05536D1075DE6247F721B264E0CD1C7E924370E6E5D9298D6AC6D3F74214A",
+    "verified": true
+  },
+  "official_contract": {
+    "installed_document": "local-xtquant-installation/doc/xttrader.md",
+    "type": "XtTrade",
+    "field": "commission",
+    "documented_meaning": "手续费",
+    "storage_field": "trades.broker_reported_fee",
+    "fee_source": "xttrade.commission",
+    "fee_breakdown_complete": false
+  },
+  "identity_repair_backup": {
+    "directory": "data/sqlite/backups/pre-order-identity-repair-20260713-184740",
+    "sqlite_sha256": "56DE3BA6F263BDE9C01B53C92DD151D770EA8A7EB38825403DB47AFB2E011A5E",
+    "verified": true
+  },
+  "migrations": [
+    "20260713_19",
+    "20260713_20"
+  ],
+  "first_reconciliation": {
+    "engine_online": true,
+    "connected": true,
+    "subscribed": true,
+    "account_healthy": true,
+    "risk_state": "NORMAL",
+    "broker_orders": 4,
+    "qmt_sim_trades": 55,
+    "trades_with_broker_reported_fee": 55,
+    "trades_with_xttrade_fee_source": 55,
+    "trades_marked_aggregate_only": 55,
+    "fee_total_matches_broker_reported_fee": 55,
+    "broker_reported_fee_sum": "0.00000000",
+    "fee_refresh_audits": 55,
+    "broker_settlements": 0
+  },
+  "restart_reconciliation": {
+    "ready": true,
+    "live_trading_enabled": false,
+    "broker_orders": 4,
+    "qmt_sim_trades": 55,
+    "distinct_broker_trade_ids": 55,
+    "duplicate_broker_identity_groups": 0,
+    "orphan_trades": 0,
+    "fee_refresh_audits": 55,
+    "workbench_stopped_after_validation": true,
+    "remaining_listeners": {
+      "8011": 0,
+      "8000": 0,
+      "5173": 0
+    }
+  },
+  "broker_order_identity_reconciliation": {
+    "broker_orders": 4,
+    "orders_with_positive_qmt_order_id": 0,
+    "orders_with_order_sysid": 4,
+    "broker_trades": 55,
+    "trades_with_positive_qmt_order_id": 0,
+    "trades_with_order_sysid": 55,
+    "numeric_order_sysid_not_inferred_as_qmt_order_id": true,
+    "orphan_trades": 0,
+    "duplicate_broker_identity_groups": 0
+  },
+  "limitations": [
+    "XtTrade.commission is an aggregate broker fee and does not provide commission, stamp tax, and transfer fee components.",
+    "The observed aggregate fee sum of zero is preserved as broker-reported fact and is not treated as a complete zero-valued breakdown.",
+    "No active-order restart scenario or newly submitted qmt_sim order was validated in this run.",
+    "BrokerSettlement remains empty until a formal settlement query or formal settlement report is available."
+  ]
+}

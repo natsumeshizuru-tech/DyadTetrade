@@ -1,0 +1,296 @@
+{
+  "metadata": {
+    "definition_name": "momentum_5d",
+    "definition_version": null,
+    "factor_columns": [
+      "momentum"
+    ],
+    "input_fields": [
+      "close"
+    ],
+    "return_column": "forward_return",
+    "groups": 5,
+    "max_decay": 5,
+    "stock_pool": "api-test-pool",
+    "parameters": {
+      "lookback": 5
+    },
+    "data_version": "api-data-v1",
+    "code_version": "api-code-v1",
+    "visible_time_field": "visible_at"
+  },
+  "summary": {
+    "coverage": 1.0,
+    "observations": 20.0,
+    "rank_ic_mean": 0.2,
+    "pearson_ic_mean": 0.19999999999999998,
+    "icir": 0.18257418583505536
+  },
+  "daily_ic": [
+    {
+      "date": "2026-01-05T00:00:00.000",
+      "factor": "momentum",
+      "pearson_ic": 1.0,
+      "rank_ic": 1.0
+    },
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "factor": "momentum",
+      "pearson_ic": -1.0,
+      "rank_ic": -1.0
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "factor": "momentum",
+      "pearson_ic": 1.0,
+      "rank_ic": 1.0
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "factor": "momentum",
+      "pearson_ic": -1.0,
+      "rank_ic": -1.0
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "factor": "momentum",
+      "pearson_ic": 1.0,
+      "rank_ic": 1.0
+    }
+  ],
+  "group_returns": [
+    {
+      "date": "2026-01-05T00:00:00.000",
+      "factor": "momentum",
+      "group": 1,
+      "return": -0.015
+    },
+    {
+      "date": "2026-01-05T00:00:00.000",
+      "factor": "momentum",
+      "group": 2,
+      "return": -0.005
+    },
+    {
+      "date": "2026-01-05T00:00:00.000",
+      "factor": "momentum",
+      "group": 3,
+      "return": 0.005
+    },
+    {
+      "date": "2026-01-05T00:00:00.000",
+      "factor": "momentum",
+      "group": 4,
+      "return": 0.015
+    },
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "factor": "momentum",
+      "group": 1,
+      "return": 0.016
+    },
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "factor": "momentum",
+      "group": 2,
+      "return": 0.006
+    },
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "factor": "momentum",
+      "group": 3,
+      "return": -0.004
+    },
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "factor": "momentum",
+      "group": 4,
+      "return": -0.014
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "factor": "momentum",
+      "group": 1,
+      "return": -0.013
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "factor": "momentum",
+      "group": 2,
+      "return": -0.003
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "factor": "momentum",
+      "group": 3,
+      "return": 0.007
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "factor": "momentum",
+      "group": 4,
+      "return": 0.017
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "factor": "momentum",
+      "group": 1,
+      "return": 0.018
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "factor": "momentum",
+      "group": 2,
+      "return": 0.008
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "factor": "momentum",
+      "group": 3,
+      "return": -0.002
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "factor": "momentum",
+      "group": 4,
+      "return": -0.012
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "factor": "momentum",
+      "group": 1,
+      "return": -0.011
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "factor": "momentum",
+      "group": 2,
+      "return": -0.001
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "factor": "momentum",
+      "group": 3,
+      "return": 0.009
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "factor": "momentum",
+      "group": 4,
+      "return": 0.019
+    }
+  ],
+  "long_short": [
+    {
+      "date": "2026-01-05T00:00:00.000",
+      "factor": "momentum",
+      "return": 0.03
+    },
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "factor": "momentum",
+      "return": -0.03
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "factor": "momentum",
+      "return": 0.03
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "factor": "momentum",
+      "return": -0.03
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "factor": "momentum",
+      "return": 0.03
+    }
+  ],
+  "decay": [
+    {
+      "factor": "momentum",
+      "lag": 1,
+      "rank_ic": 0.2255639098
+    },
+    {
+      "factor": "momentum",
+      "lag": 2,
+      "rank_ic": -0.0558823529
+    },
+    {
+      "factor": "momentum",
+      "lag": 3,
+      "rank_ic": 0.3496503497
+    },
+    {
+      "factor": "momentum",
+      "lag": 4,
+      "rank_ic": -0.1666666667
+    },
+    {
+      "factor": "momentum",
+      "lag": 5,
+      "rank_ic": 1.0
+    }
+  ],
+  "turnover": [
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "factor": "momentum",
+      "turnover": 1.0
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "factor": "momentum",
+      "turnover": 1.0
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "factor": "momentum",
+      "turnover": 1.0
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "factor": "momentum",
+      "turnover": 1.0
+    }
+  ],
+  "correlation": {
+    "momentum": {
+      "momentum": 1.0
+    }
+  },
+  "exposures": [
+    {
+      "date": "2026-01-05T00:00:00.000",
+      "momentum_mean": 1.5,
+      "momentum_std": 1.2909944487,
+      "momentum_count": 4
+    },
+    {
+      "date": "2026-01-06T00:00:00.000",
+      "momentum_mean": -1.4,
+      "momentum_std": 1.2909944487,
+      "momentum_count": 4
+    },
+    {
+      "date": "2026-01-07T00:00:00.000",
+      "momentum_mean": 1.7,
+      "momentum_std": 1.2909944487,
+      "momentum_count": 4
+    },
+    {
+      "date": "2026-01-08T00:00:00.000",
+      "momentum_mean": -1.2,
+      "momentum_std": 1.2909944487,
+      "momentum_count": 4
+    },
+    {
+      "date": "2026-01-09T00:00:00.000",
+      "momentum_mean": 1.9,
+      "momentum_std": 1.2909944487,
+      "momentum_count": 4
+    }
+  ]
+}

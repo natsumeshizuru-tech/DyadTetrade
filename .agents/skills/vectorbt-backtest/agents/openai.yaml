@@ -1,0 +1,4 @@
+interface:
+  display_name: "vectorbt-backtest"
+  short_description: "Safe project workflow for vectorbt-backtest"
+  default_prompt: "Use $vectorbt-backtest to complete this project task safely."

@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dyadtetrade"
+version = "0.1.0"
+description = "A local-first trading runtime for live and paper execution, risk controls, and strategy monitoring."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+dependencies = [
+  "pydantic>=2.10,<3.0",
+  "pydantic-settings>=2.7,<3.0",
+  "sqlalchemy>=2.0,<3.0",
+  "aiosqlite>=0.21,<1.0",
+  "jsonschema>=4.23,<5.0",
+  "PyYAML>=6.0,<7.0",
+]
+
+[project.optional-dependencies]
+trading = [
+  "fastapi>=0.115,<1.0",
+  "uvicorn[standard]>=0.34,<1.0",
+  "pandas>=2.2,<4.0",
+  "httpx>=0.28,<1.0",
+  "alembic>=1.16,<2.0",
+  "prometheus-client>=0.21,<1.0",
+]
+dev = [
+  "pytest>=8.3,<10.0",
+  "pytest-asyncio>=0.25,<2.0",
+  "pytest-cov>=6.0,<8.0",
+  "hypothesis",
+  "freezegun",
+  "ruff>=0.11,<1.0",
+  "mypy>=1.15,<2.0",
+  "pandas-stubs",
+  "types-PyYAML",
+  "types-jsonschema>=4.23",
+  "playwright",
+  "pre-commit",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --disable-warnings"
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [
+  ".agents",
+  "references/skill-audit-src",
+  "user_strategies/.backups",
+  "user_strategies/.published",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["dyadtetrade"]
+
+[[tool.mypy.overrides]]
+module = ["xtquant", "xtquant.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["reportlab", "reportlab.*"]
+ignore_missing_imports = true

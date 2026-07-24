@@ -1,0 +1,4 @@
+interface:
+  display_name: "backtest-validation-and-overfitting"
+  short_description: "Safe project workflow for backtest-validation-and-overfitting"
+  default_prompt: "Use $backtest-validation-and-overfitting to complete this project task safely."

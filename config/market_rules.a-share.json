@@ -1,0 +1,20 @@
+{
+  "profile": "cn-a-share-research",
+  "effective_date": null,
+  "requires_rule_review": true,
+  "timezone": "Asia/Shanghai",
+  "data_view": "bars_bt_ready",
+  "benchmark": "000300.SH",
+  "signal_execution": "next_bar_open",
+  "allow_short": false,
+  "cash_settlement": "configurable",
+  "share_availability": "T+1_by_instrument_rule",
+  "default_lot_size": 100,
+  "commission_rate": null,
+  "minimum_commission": null,
+  "stamp_duty_sell_rate": null,
+  "transfer_fee_rate": null,
+  "slippage_bps": null,
+  "price_limit_rules": {},
+  "notes": "Fill dated broker and exchange rules before accepting cost-sensitive results."
+}

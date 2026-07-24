@@ -1,0 +1,4 @@
+interface:
+  display_name: "miniqmt-environment-diagnostics"
+  short_description: "Safe project workflow for miniqmt-environment-diagnostics"
+  default_prompt: "Use $miniqmt-environment-diagnostics to complete this project task safely."

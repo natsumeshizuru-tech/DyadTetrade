@@ -1,0 +1,4 @@
+interface:
+  display_name: "vectorbt-optimize"
+  short_description: "Safe project workflow for vectorbt-optimize"
+  default_prompt: "Use $vectorbt-optimize to complete this project task safely."

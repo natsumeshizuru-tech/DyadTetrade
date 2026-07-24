@@ -1,0 +1,10 @@
+# Copy this file to config/market_data.local.yaml and fill in local licensed QMT paths.
+# The .local.yaml file is ignored by Git and overrides config/market_data.yaml.
+qmt:
+  userdata_mini: D:/path/to/userdata_mini
+  big_data_dir: D:/path/to/QMT/datadir
+  site_packages: D:/path/to/QMT/bin.x64/Lib/site-packages
+  sidecar_python: .xtdata-venv/Scripts/python.exe
+
+storage:
+  root: ../DyadResearch/data/sqlite

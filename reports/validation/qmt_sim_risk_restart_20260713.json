@@ -1,0 +1,61 @@
+{
+  "validation_id": "qmt_sim_risk_restart_20260713",
+  "observed_at": "2026-07-13T19:02:00+08:00",
+  "execution_mode": "qmt_sim",
+  "backup": {
+    "directory": "data/sqlite/backups/pre-risk-restart-validation-20260713-185844",
+    "sqlite_sha256": "C7EA20679D2C042C271472F128A513DBB855F1D8F15934640AC12040BBD766DC",
+    "verified": true
+  },
+  "safety": {
+    "live_trading_enabled": false,
+    "order_sent": false,
+    "cancel_sent": false,
+    "qmt_live_rows": 0
+  },
+  "initial_state": {
+    "state": "NORMAL",
+    "connected": true,
+    "subscribed": true,
+    "account_healthy": true,
+    "reconciliation_consistent": true,
+    "local_active_orders": 0,
+    "broker_active_orders": 0
+  },
+  "halt_and_restart": {
+    "requested_state": "HALTED",
+    "kill_switch_before_stop": true,
+    "persisted_state_after_stop": "HALTED",
+    "state_after_restart": "HALTED",
+    "kill_switch_after_restart": true,
+    "diagnostics_available": true,
+    "connected_after_restart": true,
+    "reconciliation_consistent_after_restart": true
+  },
+  "new_recovery_epoch": {
+    "state": "RECOVERY",
+    "reconciled_at_after_entry": null,
+    "direct_normal_http_status": 409,
+    "stale_reconciliation_reuse_blocked": true
+  },
+  "fresh_reconciliation": {
+    "state": "NORMAL",
+    "kill_switch": false,
+    "reconciliation_consistent": true,
+    "local_active_orders": 0,
+    "broker_active_orders": 0
+  },
+  "cleanup": {
+    "workbench_stopped": true,
+    "remaining_listeners": {
+      "8011": 0,
+      "8000": 0,
+      "5173": 0
+    }
+  },
+  "limitations": [
+    "No new qmt_sim order or cancellation was sent during this validation.",
+    "The restart contained no active broker order; active-order restart is automated-tested but not yet operationally validated.",
+    "Network-disconnect recovery and partial-fill/cancel races still require runtime validation."
+  ]
+}

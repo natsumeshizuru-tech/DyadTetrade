@@ -1,0 +1,4 @@
+interface:
+  display_name: "backtrader-xtquant-integration"
+  short_description: "Safe project workflow for backtrader-xtquant-integration"
+  default_prompt: "Use $backtrader-xtquant-integration to complete this project task safely."

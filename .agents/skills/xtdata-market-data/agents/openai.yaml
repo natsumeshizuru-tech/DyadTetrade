@@ -1,0 +1,4 @@
+interface:
+  display_name: "xtdata-market-data"
+  short_description: "Safe project workflow for xtdata-market-data"
+  default_prompt: "Use $xtdata-market-data to complete this project task safely."

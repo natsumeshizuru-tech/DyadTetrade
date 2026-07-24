@@ -1,0 +1,120 @@
+{
+  "live_trading_enabled": false,
+  "data": {
+    "stocks": 10,
+    "etfs": 4,
+    "stock_rows": 429,
+    "etf_rows": 188
+  },
+  "buy_and_hold_600519": {
+    "id": 11,
+    "status": "succeeded",
+    "progress": 100.0,
+    "strategy_name": "buy_and_hold",
+    "strategy_version": "1.0.0",
+    "symbols": [
+      "600519.SH"
+    ],
+    "result_id": 11,
+    "error_message": null,
+    "data_fingerprint": "e94dee0acd8aeca4380951f8158eef3ea0fe8748ceb3d415c4659d9e9eccf93a",
+    "created_at": "2026-07-12T09:57:56.049334",
+    "started_at": "2026-07-12T09:57:56.061863",
+    "finished_at": "2026-07-12T09:57:56.104383"
+  },
+  "ma_510300": {
+    "id": 12,
+    "status": "succeeded",
+    "progress": 100.0,
+    "strategy_name": "moving_average_cross",
+    "strategy_version": "1.0.0",
+    "symbols": [
+      "510300.SH"
+    ],
+    "result_id": 12,
+    "error_message": null,
+    "data_fingerprint": "7634411354118c49dcd97c3a4aa9c197d18b7e61c3f6834a1260ef3c3e283efc",
+    "created_at": "2026-07-12T09:57:56.109668",
+    "started_at": "2026-07-12T09:57:56.113875",
+    "finished_at": "2026-07-12T09:57:56.203483"
+  },
+  "rotation_10_stocks": {
+    "id": 13,
+    "status": "succeeded",
+    "progress": 100.0,
+    "strategy_name": "equal_weight_rotation",
+    "strategy_version": "1.0.0",
+    "symbols": [
+      "600519.SH",
+      "000001.SZ",
+      "000333.SZ",
+      "600036.SH",
+      "601318.SH",
+      "300750.SZ",
+      "000858.SZ",
+      "600276.SH",
+      "601166.SH",
+      "002594.SZ"
+    ],
+    "result_id": 13,
+    "error_message": null,
+    "data_fingerprint": "89840b4c214edb0a0a7b5270179c8ea202201abad2e1908bad47bb7c61107dd1",
+    "created_at": "2026-07-12T09:57:56.203483",
+    "started_at": "2026-07-12T09:57:56.221152",
+    "finished_at": "2026-07-12T09:57:56.348178"
+  },
+  "etf_portfolio": {
+    "weights": {
+      "159915.SZ": 0.2,
+      "510300.SH": 0.2,
+      "510500.SH": 0.2,
+      "512100.SH": 0.2
+    },
+    "weight_sum": 0.8,
+    "order_intents": 4,
+    "sent_to_broker": false
+  },
+  "factor_ic": {
+    "coverage": 1.0,
+    "observations": 369.0,
+    "rank_ic_mean": 0.07601626016260163,
+    "pearson_ic_mean": 0.0609912627326888,
+    "icir": 0.16748920300172912
+  },
+  "optimization": {
+    "task_id": 9,
+    "status": "succeeded",
+    "trials": 6,
+    "best_parameters": {
+      "fast": 3,
+      "slow": 10
+    },
+    "pareto_front": 2,
+    "robustness_scenarios": 6,
+    "walk_forward_folds": 2,
+    "monte_carlo_simulations": 100.0,
+    "warnings": [
+      "Pareto membership does not replace untouched out-of-sample validation.",
+      "Objective weights and nearby parameter performance must be reported together.",
+      "Walk-forward folds preserve time order and never shuffle observations.",
+      "Monte Carlo resampling measures path sensitivity, not future expected return.",
+      "Multiple-testing and capacity assumptions remain explicit release gates."
+    ]
+  },
+  "paper_realtime": {
+    "miniqmt_price": 4.829,
+    "order_status": "FILLED",
+    "paper_trade_count": 1,
+    "strategy_name": "buy_and_hold",
+    "strategy_running": true,
+    "live_order_sent": false,
+    "reconciled": true
+  },
+  "engine_comparison": {
+    "dyadtetrade": 1001862.42,
+    "vectorized": 1001862.42,
+    "backtrader": 1001862.42,
+    "dyadtetrade_minus_vectorized": 0.0,
+    "backtrader_minus_vectorized": 0.0
+  }
+}

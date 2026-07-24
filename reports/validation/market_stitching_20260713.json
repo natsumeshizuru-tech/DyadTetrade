@@ -1,0 +1,35 @@
+{
+  "observed_at": "2026-07-13T18:27:29+08:00",
+  "scope": "miniQMT unadjusted intraday backfill and API stitching",
+  "symbol": "510300.SH",
+  "trade_date": "20260713",
+  "order_sent": false,
+  "periods": {
+    "1m": {
+      "bars": 241,
+      "unique_keys": 241,
+      "duplicates": 0,
+      "first_bar": "2026-07-13T09:30:00+08:00",
+      "last_bar": "2026-07-13T15:00:00+08:00",
+      "finalized": 241,
+      "provisional": 0,
+      "has_gap": false,
+      "backfill_error": null
+    },
+    "5m": {
+      "bars": 48,
+      "unique_keys": 48,
+      "duplicates": 0,
+      "first_bar": "2026-07-13T09:35:00+08:00",
+      "last_bar": "2026-07-13T15:00:00+08:00",
+      "finalized": 48,
+      "provisional": 0,
+      "has_gap": false,
+      "backfill_error": null
+    }
+  },
+  "known_limits": [
+    "Single-symbol, single-day after-close validation only.",
+    "Disconnect, reconnect, midday live transition and cross-day replay remain pending."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "validation_id": "qmt_sim_recovery_races_20260713",
+  "observed_at": "2026-07-13T19:42:15+08:00",
+  "execution_mode": "qmt_sim",
+  "backup": {
+    "directory": "data/sqlite/backups/pre-recovery-races-20260713-194043",
+    "sqlite_sha256": "09C0D6DCF83CEB6C4384C3407105C512B669A77944B1D189B73492C97978B756",
+    "verified": true,
+    "size_bytes": 47484928
+  },
+  "automated_failure_matrix": {
+    "trade_callback_before_order_callback": "passed",
+    "duplicate_and_out_of_order_callbacks": "passed",
+    "partial_fill_during_cancel": "passed",
+    "fill_during_synchronous_cancel_response": "passed",
+    "cancel_error_restores_active_state": "passed",
+    "order_error_without_async_sequence": "passed",
+    "stale_query_cannot_regress_terminal_or_fill": "passed",
+    "current_query_snapshot_cannot_use_stale_memory": "passed",
+    "fast_reconnect_requires_fresh_reconciliation": "passed",
+    "unhealthy_account_blocks_reconciliation": "passed",
+    "order_sysid_to_qmt_order_id_upgrade_is_idempotent": "passed"
+  },
+  "quality_gates": {
+    "backend_tests_passed": 215,
+    "backend_coverage_percent": 82,
+    "frontend_tests_passed": 5,
+    "ruff": "passed",
+    "strict_mypy_source_files": 117,
+    "alembic_head": "20260713_20",
+    "alembic_drift": false,
+    "frontend_lint": "passed",
+    "frontend_build": "passed"
+  },
+  "qmt_read_only_validation": {
+    "connected": true,
+    "subscribed": true,
+    "account_healthy": true,
+    "gateway_health_consistent": true,
+    "reconciliation_consistent_before_manual_reconcile": true,
+    "reconciliation_consistent_after_manual_reconcile": true,
+    "local_active_orders": 0,
+    "broker_active_orders": 0,
+    "order_state_conflicts": 0,
+    "api_broker_orders": 4,
+    "api_broker_trades": 55,
+    "sqlite_qmt_sim_orders_before": 5,
+    "sqlite_qmt_sim_orders_after": 5,
+    "sqlite_qmt_sim_trades_before": 55,
+    "sqlite_qmt_sim_trades_after": 55,
+    "sqlite_order_delta": 0,
+    "sqlite_trade_delta": 0,
+    "duplicate_broker_trade_ids": 0,
+    "state_regression_events_before": 0,
+    "state_regression_events_after": 0,
+    "reconciliation_mismatch_events_before": 0,
+    "reconciliation_mismatch_events_after": 0
+  },
+  "safety": {
+    "live_trading_enabled": false,
+    "qmt_live_orders": 0,
+    "qmt_live_trades": 0,
+    "order_endpoint_invoked": false,
+    "cancel_endpoint_invoked": false,
+    "workbench_stopped": true,
+    "remaining_listeners": {
+      "8011": 0,
+      "8000": 0,
+      "5173": 0
+    }
+  },
+  "limitations": [
+    "The operational validation was read-only and contained no active broker order.",
+    "Partial-fill/cancel races, disconnect recovery, and active-order restart remain automated-tested but not operationally validated.",
+    "No qmt_sim or qmt_live order or cancellation was sent during this validation."
+  ]
+}

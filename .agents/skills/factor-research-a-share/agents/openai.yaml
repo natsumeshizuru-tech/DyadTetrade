@@ -1,0 +1,4 @@
+interface:
+  display_name: "factor-research-a-share"
+  short_description: "Safe project workflow for factor-research-a-share"
+  default_prompt: "Use $factor-research-a-share to complete this project task safely."

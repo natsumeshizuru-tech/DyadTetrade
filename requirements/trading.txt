@@ -1,0 +1,3 @@
+-e .[trading]
+
+# Intentionally excludes torch, transformers, catboost and other research-only runtimes.

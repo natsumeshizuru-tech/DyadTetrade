@@ -1,0 +1,1 @@
+-e .[trading,research,dev]

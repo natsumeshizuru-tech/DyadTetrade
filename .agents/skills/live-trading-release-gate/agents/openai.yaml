@@ -1,0 +1,4 @@
+interface:
+  display_name: "live-trading-release-gate"
+  short_description: "Safe project workflow for live-trading-release-gate"
+  default_prompt: "Use $live-trading-release-gate to complete this project task safely."

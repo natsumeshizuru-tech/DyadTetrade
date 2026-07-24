@@ -1,0 +1,30 @@
+{
+  "mode": "offline_backtest",
+  "live_trading_enabled": false,
+  "xttrader_imported": false,
+  "input": "data\\bt_ready\\bars_1d\\symbol=600519.SH\\600519_SH_1d_front.parquet",
+  "symbol": "600519.SH",
+  "start": "2026-07-06 00:00:00",
+  "end": "2026-07-10 00:00:00",
+  "quality": {
+    "rows": 5,
+    "empty": false,
+    "duplicate_datetimes": 0,
+    "null_counts": {
+      "close": 0,
+      "high": 0,
+      "low": 0,
+      "open": 0,
+      "volume": 0
+    },
+    "ohlc_relationship_errors": 0,
+    "negative_volume_rows": 0
+  },
+  "backtest": {
+    "strategy": "buy_and_hold_100_share_smoke",
+    "initial_value": 1000000.0,
+    "final_value": 1000462.0,
+    "total_return": 0.00046199999999996244,
+    "max_drawdown_percent": 0.1817
+  }
+}

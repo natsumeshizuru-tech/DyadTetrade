@@ -1,0 +1,75 @@
+{
+  "observed_at": "2026-07-13T20:08:10.387928+08:00",
+  "scope": "six-period market continuity recovery and after-close snapshot monotonicity",
+  "symbol": "510300.SH",
+  "runtime_root": "private-local-runtime-checks/market-continuity-20260713-200809",
+  "safety": {
+    "execution_mode": "disabled",
+    "live_trading_enabled": false,
+    "trading_engine_started": false,
+    "orders_sent": 0,
+    "cancel_requests_sent": 0
+  },
+  "automated_validation": {
+    "new_regression_tests": 11,
+    "initial_expected_failures": 7,
+    "covered_scenarios": [
+      "five-minute polling disconnect and mandatory recovery",
+      "all-period backfill before tick processing",
+      "backfill failure retry and fail-closed freshness",
+      "official trading-calendar failure",
+      "vendor minute-bar labels including the afternoon boundary",
+      "cross-day cumulative counter reset",
+      "same-day cumulative counter regression",
+      "stale, future, and non-trading-day tick rejection",
+      "incomplete cross-day daily bar is not finalized",
+      "after-close first snapshot does not overwrite history",
+      "finalized intraday bar persists in its own period"
+    ],
+    "full_backend_tests": 226,
+    "coverage_percent": 82,
+    "frontend_tests": 5,
+    "strict_mypy_source_files": 117
+  },
+  "mini_qmt_validation": {
+    "backfill_periods": ["1m", "5m", "15m", "30m", "1h", "1d"],
+    "continuity_backfill_runs": 1,
+    "continuity_recovery_required": false,
+    "continuity_failures": [],
+    "last_tick_at": "2026-07-13T07:00:13+00:00",
+    "market_fresh_after_close": false,
+    "after_close_snapshot_changed_trusted_files": [],
+    "periods": {
+      "1m": {"rows": 1446, "last_history_time": "2026-07-13T15:00:00+08:00", "gap_count": 0, "continuity_verified": true},
+      "5m": {"rows": 288, "last_history_time": "2026-07-13T15:00:00+08:00", "gap_count": 0, "continuity_verified": true},
+      "15m": {"rows": 96, "last_history_time": "2026-07-13T15:00:00+08:00", "gap_count": 0, "continuity_verified": true},
+      "30m": {"rows": 48, "last_history_time": "2026-07-13T15:00:00+08:00", "gap_count": 0, "continuity_verified": true},
+      "1h": {"rows": 24, "last_history_time": "2026-07-13T15:00:00+08:00", "gap_count": 0, "continuity_verified": true},
+      "1d": {"rows": 6, "last_history_time": "2026-07-13T09:30:00+08:00", "gap_count": 0, "continuity_verified": true}
+    }
+  },
+  "real_ledger_read_only_after": {
+    "integrity_check": "ok",
+    "qmt_sim_orders": 5,
+    "qmt_sim_trades": 55,
+    "broker_settlements": 0,
+    "qmt_live_orders": 0,
+    "qmt_live_trades": 0
+  },
+  "gates": {
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "strict_mypy": "passed",
+    "empty_database_upgrade": "passed",
+    "alembic_check": "passed",
+    "frontend_lint": "passed",
+    "frontend_build": "passed",
+    "mini_qmt_read_only": "connected, 6972 sectors",
+    "live_trading_fail_closed": "passed"
+  },
+  "known_limits": [
+    "The miniQMT run was after close, isolated, single-symbol, and covered six recent trading days.",
+    "A real network interruption during trading hours and a continuously running cross-day process remain pending.",
+    "Snapshot polling is not a tick-by-tick execution-grade market-data source."
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "vectorbt-setup"
+  short_description: "Safe project workflow for vectorbt-setup"
+  default_prompt: "Use $vectorbt-setup to complete this project task safely."

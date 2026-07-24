@@ -1,0 +1,4 @@
+interface:
+  display_name: "quant-risk-performance-reporting"
+  short_description: "Safe project workflow for quant-risk-performance-reporting"
+  default_prompt: "Use $quant-risk-performance-reporting to complete this project task safely."

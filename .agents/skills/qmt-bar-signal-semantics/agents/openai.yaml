@@ -1,0 +1,4 @@
+interface:
+  display_name: "qmt-bar-signal-semantics"
+  short_description: "Safe project workflow for qmt-bar-signal-semantics"
+  default_prompt: "Use $qmt-bar-signal-semantics to complete this project task safely."

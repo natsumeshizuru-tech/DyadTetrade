@@ -1,0 +1,71 @@
+{
+  "checked_at": "2026-07-13T20:58:00+08:00",
+  "scope": "market_data_only",
+  "backup": {
+    "path": "data/backups/failure-classification-20260713-203920/dyadtetrade.db",
+    "database_sha256": "d52c1ad8d9eb17c74ea310108bd699ac30f3e3a106f0df93e622b5299380a065",
+    "files": 21
+  },
+  "database": {
+    "revision": "20260713_22",
+    "integrity_check": "ok",
+    "active_instruments": 7779,
+    "daily_coverage_before": 7698,
+    "daily_coverage_after": 7700,
+    "daily_missing_before": 81,
+    "daily_missing_after": 79,
+    "latest_trade_date": "20260713",
+    "latest_trade_date_coverage_before": 7684,
+    "latest_trade_date_coverage_after": 7686,
+    "failed_items_before": 187,
+    "failed_items_after": 178,
+    "retryable_failed_items": 0,
+    "quarantined_failed_items": 178,
+    "quality_issue_count": 2369,
+    "legacy_download_failed_quality_issues": 0,
+    "failure_categories": {
+      "delisted": 8,
+      "no_market_data": 92,
+      "unsupported_instrument": 78
+    },
+    "failed_items_by_catalog_asset": {
+      "etf": 124,
+      "stock": 46,
+      "missing_catalog": 8
+    }
+  },
+  "index_recovery": {
+    "failure_items_before": 9,
+    "failure_items_after": 0,
+    "unique_symbols": 7,
+    "trusted_rows": 12521,
+    "raw_negative_turnover_sentinel_rows": 670,
+    "trusted_negative_turnover_rows": 0,
+    "trusted_price_only_rows": 670,
+    "trusted_amount_mismatches_on_volume_sentinel_rows": 0,
+    "symbols": [
+      {"symbol": "000011.SH", "trusted_rows": 1824, "price_only_rows": 5, "trusted_sha256": "2f35e3d375f31a735ddeab9bdd8f7ffeeff01437880c407aabf5bda9cd72270b"},
+      {"symbol": "000691.SH", "trusted_rows": 1581, "price_only_rows": 497, "trusted_sha256": "6e53676e134f0979cc36ce0b5e6f1fbfcc3f91b242169c7dc3a18566ebf66954"},
+      {"symbol": "000902.SH", "trusted_rows": 1820, "price_only_rows": 6, "trusted_sha256": "6dbedf11e946ec33b07ec383864aa662f0125349564cc15a6be40bb9bc9a9acd"},
+      {"symbol": "000985.SH", "trusted_rows": 1824, "price_only_rows": 4, "trusted_sha256": "53bb90550ac6ecc3de11b7520a0b0382ad80ffe0d0d999dbbf19cb5d935e4b7c"},
+      {"symbol": "399317.SZ", "trusted_rows": 1824, "price_only_rows": 6, "trusted_sha256": "420225155a2a65206895e5ffb8e5d4f5f94243004b320f88b553b8b1d7e19cf7"},
+      {"symbol": "399379.SZ", "trusted_rows": 1824, "price_only_rows": 81, "trusted_sha256": "9aa345433192cb4d7a2c6551a6742fef1e3dab4389e4ed15edd5aaeeb2d32ba8"},
+      {"symbol": "399380.SZ", "trusted_rows": 1824, "price_only_rows": 71, "trusted_sha256": "7e21d0df504c3253f10dc5a282700df533c206b3a0df9df27ae53c433a7e3d32"}
+    ]
+  },
+  "trading_boundary": {
+    "execution_mode": "disabled",
+    "live_trading_enabled": false,
+    "ledger_unchanged": true,
+    "qmt_sim_orders_before": 5,
+    "qmt_sim_orders_after": 5,
+    "qmt_sim_trades_before": 55,
+    "qmt_sim_trades_after": 55,
+    "qmt_live_orders_before": 0,
+    "qmt_live_orders_after": 0,
+    "qmt_live_trades_before": 0,
+    "qmt_live_trades_after": 0,
+    "broker_settlements_before": 0,
+    "broker_settlements_after": 0
+  }
+}

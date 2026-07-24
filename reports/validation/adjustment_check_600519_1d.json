@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "symbols": 1,
+    "passed": 1,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "symbol": "600519.SH",
+      "period": "1d",
+      "raw_rows": 1823,
+      "adjusted_rows": 1823,
+      "common_rows": 1823,
+      "missing_in_raw": 0,
+      "missing_in_adjusted": 0,
+      "volume_mismatch_rows": 0,
+      "inconsistent_price_ratio_rows": 0,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "xttrader-trading-gateway"
+  short_description: "Safe project workflow for xttrader-trading-gateway"
+  default_prompt: "Use $xttrader-trading-gateway to complete this project task safely."

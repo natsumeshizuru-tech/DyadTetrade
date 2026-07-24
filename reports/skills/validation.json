@@ -1,0 +1,245 @@
+{
+  "passed": true,
+  "skill_count": 27,
+  "duplicates": [],
+  "errors": [],
+  "skills": [
+    {
+      "scope": "project",
+      "name": "a-share-backtest-realism",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "backtest-validation-and-overfitting",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "backtrader",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "backtrader-xtquant-integration",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "business-decomposition-order-quality",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "china-stock-research-orchestrator",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "cointegration-analysis",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "factor-research-a-share",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "financial-health",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "industry-competition-moat",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "live-trading-release-gate",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "miniqmt-environment-diagnostics",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "portfolio-analytics",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "qmt-bar-signal-semantics",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "qmt-order-execution-safety",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "quant-data-quality",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "quant-risk-performance-reporting",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "risk-warning-catalysts",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "strategy-business-transition",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "valuation-investment-strategy",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    },
+    {
+      "scope": "project",
+      "name": "vectorbt-backtest",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "vectorbt-expert",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "vectorbt-optimize",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "vectorbt-setup",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "xtdata-market-data",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "project",
+      "name": "xttrader-trading-gateway",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": [
+        2,
+        2
+      ]
+    },
+    {
+      "scope": "home",
+      "name": "webapp-testing",
+      "description_present": true,
+      "missing_references": [],
+      "trigger_tests": null
+    }
+  ]
+}
